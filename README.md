@@ -27,16 +27,16 @@
     </encoder>
     <appName><!-- Your application name --></appName>
     <ingestionKey><!-- Your LogDNA ingestion key --></ingestionKey>
-    <includeStacktrace><!-- Log stacktraces: true/false --></includeStacktrace>
-    <sendMDC><!-- Send logback's Mapped Diagnostic Context (MDC): true/false --></sendMDC>
+    <includeStacktrace><!-- Log stacktraces. Default: true --></includeStacktrace>
+    <sendMDC><!-- Send logback's Mapped Diagnostic Context (MDC). Default: true --></sendMDC>
 </appender>
 
 <!-- This is required to send your log asynchronously or your application will become very slow -->
-<appender name="LOGDNA_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="LOGDNA" />
 </appender>
 
 <root level="DEBUG">
-    <appender-ref ref="LOGDNA_ASYNC" />
+    <appender-ref ref="ASYNC" />
 </root>
 ```
