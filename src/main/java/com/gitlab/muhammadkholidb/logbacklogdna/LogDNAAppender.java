@@ -18,13 +18,11 @@ import ch.qos.logback.core.ConsoleAppender;
 import ch.qos.logback.core.status.ErrorStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  *
  * @author muhammad
  */
-@Slf4j
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class LogDNAAppender extends ConsoleAppender<ILoggingEvent> {
@@ -108,10 +106,10 @@ public class LogDNAAppender extends ConsoleAppender<ILoggingEvent> {
                     .asJsonObject();
 
             if (!response.isSuccess()) {
-                log.error("Failed to post data to LogDNA: {} ({})", response.getStatusLine(), response.getStatusCode());
+                System.err.println("Failed to post data to LogDNA: " + response.getStatusLine() + " (" + response.getStatusCode() + ")");
             }
         } catch (JSONException e) {
-            log.error(e.getMessage(), e);
+            e.printStackTrace();
         }
     }
 
