@@ -15,7 +15,7 @@
 <dependency>
     <groupId>com.gitlab.muhammadkholidb</groupId>
     <artifactId>logback-logdna</artifactId>
-    <version>master-SNAPSHOT</version>
+    <version>1.0</version>
 </dependency>
 ```
 
